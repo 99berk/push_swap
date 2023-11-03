@@ -6,12 +6,12 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:02:24 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/01 17:36:07 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/03 11:50:03 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "./libraries/libft/libft.h"
+#include "./libraries/Libft/libft.h"
 #include <unistd.h>
 
 void	ft_error(int *arrays)
@@ -21,11 +21,11 @@ void	ft_error(int *arrays)
 	exit (1);
 }
 
-int	push_swap_atoi(char *str, t_push_swap *arrays)
+int	push_swap_atoi(char *str, int *arrays)
 {
-	int	i;
-	int	sign;
-	int	num;
+	int		i;
+	int		sign;
+	long	num;
 
 	i = 0;
 	sign = 1;
@@ -38,7 +38,7 @@ int	push_swap_atoi(char *str, t_push_swap *arrays)
 		i++;
 	while (str[i])
 	{
-		if (str[i]  >= '0' && str[i] <= '9')
+		if (str[i]  < '0' && str[i] > '9')
 			ft_error(arrays);
 		num = (num * 10) + (str[i] - '0');
 		i++;
@@ -61,6 +61,25 @@ int	pushswap_len(char **argv)
 	return (i);
 }
 
+void	ctrl_doubles(int *array, int size)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;	
+		while (j < size)
+		{
+			if (array[i] == array[j])
+				ft_error(array);
+			j++;
+		}
+		i++;
+	}
+}
+
 int	push_swap(char **argv)
 {
 	t_push_swap	arrays;
@@ -74,9 +93,11 @@ int	push_swap(char **argv)
 	if (!arrays.b)
 		return (free(arrays.a), 0);
 	arrays.size_b = 0;
-	i = 0;
-	while (i < arrays.size_a)
-		arrays.a[i] = push_swap_atoi(argv[i++], arrays.a);
+	i = -1;
+	while (++i < arrays.size_a)
+		arrays.a[i] = push_swap_atoi(argv[i], arrays.a);
+	ctrl_doubles(arrays.a, arrays.size_a);
+	return (0);
 }
 
 int	main(int argc, char **argv)
