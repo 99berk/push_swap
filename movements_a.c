@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a.c                                                :+:      :+:    :+:   */
+/*   movements_a.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 14:58:08 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/10 12:00:09 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/11 17:32:47 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	pa(t_push_swap *arrays)
 		arrays->size_a++;
 		i = arrays->size_a;
 		while (--i > 0)
-			arrays->a[1] = arrays->a[i - 1];
+			arrays->a[i] = arrays->a[i - 1];
 		arrays->a[0] = arrays->b[0];
+		arrays->size_b--;
 		i = -1;
 		while (++i < arrays->size_b)
 			arrays->b[i] = arrays->b[i + 1];

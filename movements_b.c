@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:59:22 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/10 15:12:22 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/11 17:32:39 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	pb(t_push_swap *arrays)
 		arrays->size_b++;
 		i = arrays->size_b;
 		while (--i > 0)
-			arrays->b[1] = arrays->b[i - 1];
+			arrays->b[i] = arrays->b[i - 1];
 		arrays->b[0] = arrays->a[0];
+		arrays->size_a--;
 		i = -1;
 		while (++i < arrays->size_a)
 			arrays->a[i] = arrays->a[i + 1];

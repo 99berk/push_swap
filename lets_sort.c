@@ -6,12 +6,12 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:15:00 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/10 17:12:30 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/11 18:08:44 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <unistd.h>
 
 void	case_of_has_three_element_in_a(t_push_swap *arrays)
 {
@@ -40,7 +40,7 @@ void	case_of_has_three_element_in_a(t_push_swap *arrays)
 
 int	start_sort(t_push_swap *arrays, int size)
 {
-	if (ctrl_sorted(arrays->a, arrays->size_a, 0))
+	if (!ctrl_sorted(arrays->a, arrays->size_a, 0))
 	{
 		if (size == 2)
 			sa(arrays);
@@ -55,10 +55,11 @@ int	start_sort(t_push_swap *arrays, int size)
 int	push_array(t_push_swap *arrays, int len, char array_ab)
 {
 	if (array_ab == 'b')
-		sb(arrays);
+		pb(arrays);
 	else if (array_ab == 'a')
-		sa(arrays);
-	len--;
+		pa(arrays);
+	if (len > 0)
+		len--;
 	return (len);
 }
 

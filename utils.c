@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:04:26 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/10 16:33:52 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/11 16:28:58 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	push_swap_atoi(char *str, int *arrays)
 		i++;
 	while (str[i])
 	{
-		if (str[i] < '0' && str[i] > '9')
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			ft_error(arrays);
 		num = (num * 10) + (str[i] - '0');
 		i++;
