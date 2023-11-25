@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 12:04:26 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/25 15:23:50 by bakgun           ###   ########.fr       */
+/*   Created: 2023/11/25 17:02:37 by bakgun            #+#    #+#             */
+/*   Updated: 2023/11/25 18:07:37 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_error(int *arrays)
+void	ft_error_b(int *arrays)
 {
 	free(arrays);
 	write(2, "Error\n", 6);
 	exit (1);
 }
 
-int	push_swap_atoi(char *str, int *arrays)
+int	push_swap_atoi_b(char *str, int *arrays)
 {
 	int		i;
 	int		sign;
@@ -36,20 +36,20 @@ int	push_swap_atoi(char *str, int *arrays)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		ft_error(arrays);
+		ft_error_b(arrays);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_error(arrays);
+			ft_error_b(arrays);
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
 	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1))
-		ft_error(arrays);
+		ft_error_b(arrays);
 	return (num * sign);
 }
 
-int	pushswap_len(char **argv)
+int	pushswap_len_b(char **argv)
 {
 	int	i;
 
@@ -62,7 +62,7 @@ int	pushswap_len(char **argv)
 	return (i);
 }
 
-void	ctrl_doubles(int *array, int size)
+void	ctrl_doubles_b(int *array, int size)
 {
 	int	i;
 	int	j;
@@ -74,14 +74,14 @@ void	ctrl_doubles(int *array, int size)
 		while (j < size)
 		{
 			if (array[i] == array[j])
-				ft_error(array);
+				ft_error_b(array);
 			j++;
 		}
 		i++;
 	}
 }
 
-int	ctrl_sorted(int *array, int size, int order_way)
+int	ctrl_sorted_b(int *array, int size, int order_way)
 {
 	int	i;
 
