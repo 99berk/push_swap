@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:32:52 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/25 18:08:05 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/26 14:16:23 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct s_push_swap
 	int	size_b;
 }	t_push_swap;
 
-char	**ft_split(char const *s, char c);
+char	**ft_split_b(char const *s, char c);
+int		ft_strcmp_b(const char *s1, const char *s2);
 int		push_swap_atoi_b(char *str, int *arrays);
 int		pushswap_len_b(char **argv);
 int		ctrl_sorted_b(int *array, int size, int order_way);

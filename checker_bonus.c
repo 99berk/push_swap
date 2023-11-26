@@ -6,16 +6,46 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:32:17 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/25 18:22:07 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/26 15:53:23 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include "get_next_line/get_next_line.h"
 
-void	checker(t_push_swap *arrays)
+int	checker(t_push_swap *arrays)
 {
+	char	*line;
 	
+	line = get_next_line(0);
+	if (line == NULL)
+		return (free(line), 0);
+	if (ft_strcmp_b(line, "sa"))
+		sa_b(arrays);
+	else if (ft_strcmp_b(line, "pa"))
+		pa_b(arrays);
+	else if (ft_strcmp_b(line, "ra"))
+		ra_b(arrays);
+	else if (ft_strcmp_b(line, "rra"))
+		rra_b(arrays);
+	else if (ft_strcmp_b(line, "sb"))
+		sb_b(arrays);
+	else if (ft_strcmp_b(line, "pb"))
+		pb_b(arrays);
+	else if (ft_strcmp_b(line, "rb"))
+		rb_b(arrays);
+	else if (ft_strcmp_b(line, "rrb"))
+		rrb_b(arrays);
+	else if (ft_strcmp_b(line, "ss"))
+		ss_b(arrays);
+	else if (ft_strcmp_b(line, "rr"))
+		rr_b(arrays);
+	else if (ft_strcmp_b(line, "rrr"))
+		rrr_b(arrays);
+	else
+		return (write(1, "Error\n", 6), 0);
+	checker(arrays);
+	return (0);
 }
 
 int	push_swap(char **argv)
@@ -51,7 +81,7 @@ int	main(int argc, char **argv)
 	{
 		argv++;
 		if (argc == 2)
-			argv = ft_split(*argv, ' ');
+			argv = ft_split_b(*argv, ' ');
 		push_swap(argv);
 		return (0);
 	}
