@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fonc_bonus.c                                    :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:12:19 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/26 14:16:49 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/29 15:34:08 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,18 +113,4 @@ char	**ft_split_b(char const *s, char c)
 			i++;
 	}
 	return (str[j] = 0, str);
-}
-
-int	ft_strcmp_b(const char *s1, const char *s2)
-{
-	while (*s1 != '\0' && *s2 != '\0')
-	{
-		if (*s1 != *s2)
-		{
-			return (*(unsigned char *)s1 - *(unsigned char *)s2);
-		}
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

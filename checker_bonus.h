@@ -6,12 +6,12 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:32:52 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/26 14:16:23 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/11/29 13:42:43 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 typedef struct s_push_swap
 {
