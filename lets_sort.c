@@ -6,12 +6,11 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:15:00 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/24 12:13:04 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:03:33 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 void	case_of_has_three_element_in_a(t_push_swap *arrays)
 {

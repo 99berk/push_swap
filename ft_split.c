@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 17:51:53 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/10 17:52:58 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/08 11:30:40 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	ft_countofword(char const *s, char c)
 	return (countword);
 }
 
-static char	**ft_allfree(char **str)
+char	**ft_allfree(char **str)
 {
 	int	i;
 

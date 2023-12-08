@@ -6,7 +6,7 @@
 #    By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 17:48:38 by bakgun            #+#    #+#              #
-#    Updated: 2023/11/29 15:31:30 by bakgun           ###   ########.fr        #
+#    Updated: 2023/12/06 15:18:13 by bakgun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ bonus: $(NAME_B)
 	
 $(NAME_B): $(OBJECTS_B) | gnl
 	$(CC) $(OBJECTS_B) -o $(NAME_B) $(GNL)/*a $(CFLAGS)
+	
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 	
 gnl:
 	make all -C $(GNL)

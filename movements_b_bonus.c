@@ -6,12 +6,11 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:17:34 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/29 13:45:44 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:17:10 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
-#include <unistd.h>
 
 void	sb_b(t_push_swap *arrays)
 {

@@ -6,12 +6,13 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:32:17 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/29 15:30:55 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/08 12:16:00 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 #include "get_next_line/get_next_line.h"
+#include <unistd.h>
 
 int	ft_strcmp_b(const char *s1, const char *s2)
 {
@@ -64,12 +65,12 @@ int	checker(t_push_swap *arrays)
 	if (line == NULL)
 		return (free(line), 1);
 	if (checker2(arrays, line) == 0)
-		return (0);
+		return (free(line), 0);
 	checker(arrays);
-	return (1);
+	return (free(line), 1);
 }
 
-int	push_swap(char **argv)
+int	push_swap(char **argv, int k)
 {
 	t_push_swap	arrays;
 	int			i;
@@ -84,27 +85,35 @@ int	push_swap(char **argv)
 	arrays.size_b = 0;
 	i = -1;
 	while (++i < arrays.size_a)
-		arrays.a[i] = push_swap_atoi_b(argv[i], arrays.a);
-	ctrl_doubles_b(arrays.a, arrays.size_a);
-	if (checker(&arrays) == 0)
-		return (0);
-	if (!ctrl_sorted_b(arrays.a, arrays.size_a, 0))
+		arrays.a[i] = push_swap_atoi_b(argv[i], arrays, k, argv);
+	ctrl_doubles_b(arrays, arrays.size_a, k, argv);
+	if (checker(&arrays) == 1 && !ctrl_sorted_b(arrays.a, arrays.size_a, 0))
 		write(1, "KO\n", 3);
-	else
+	else if (ctrl_sorted_b(arrays.a, arrays.size_a, 0))
 		write(1, "OK\n", 3);
 	free(arrays.a);
 	free(arrays.b);
+	if (k == 1)
+		ft_allfree_b(argv);
 	return (0);
 }
 
 int	main(int argc, char **argv)
 {
+	int	k;
+
+	k = 0;
 	if (argc > 1)
 	{
 		argv++;
 		if (argc == 2)
+		{
+			k = 1;
 			argv = ft_split_b(*argv, ' ');
-		push_swap(argv);
+			push_swap(argv, k);
+		}
+		else
+			push_swap(argv, k);
 		return (0);
 	}
 	return (0);

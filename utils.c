@@ -6,21 +6,25 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:04:26 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/25 15:23:50 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/08 11:36:52 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_error(int *arrays)
+void	ft_error(t_push_swap arrays, int k, char **argv)
 {
-	free(arrays);
+	free(arrays.a);
+	free(arrays.b);
+	if (k == 1)
+		ft_allfree(argv);
 	write(2, "Error\n", 6);
 	exit (1);
 }
 
-int	push_swap_atoi(char *str, int *arrays)
+int	push_swap_atoi(char *str, t_push_swap arrays, int k, char **argv)
 {
 	int		i;
 	int		sign;
@@ -36,16 +40,16 @@ int	push_swap_atoi(char *str, int *arrays)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		ft_error(arrays);
+		ft_error(arrays, k, argv);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_error(arrays);
+			ft_error(arrays, k, argv);
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
 	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1))
-		ft_error(arrays);
+		ft_error(arrays, k, argv);
 	return (num * sign);
 }
 
@@ -62,7 +66,7 @@ int	pushswap_len(char **argv)
 	return (i);
 }
 
-void	ctrl_doubles(int *array, int size)
+void	ctrl_doubles(t_push_swap arrays, int size, int k, char **argv)
 {
 	int	i;
 	int	j;
@@ -73,8 +77,8 @@ void	ctrl_doubles(int *array, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (array[i] == array[j])
-				ft_error(array);
+			if (arrays.a[i] == arrays.a[j])
+				ft_error(arrays, k, argv);
 			j++;
 		}
 		i++;

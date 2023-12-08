@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:32:52 by bakgun            #+#    #+#             */
-/*   Updated: 2023/11/29 13:42:43 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/08 11:58:45 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 char	**ft_split_b(char const *s, char c);
+char	**ft_allfree_b(char **str);
 int		ft_strcmp_b(const char *s1, const char *s2);
-int		push_swap_atoi_b(char *str, int *arrays);
+int		push_swap_atoi_b(char *str, t_push_swap arrays, int k, char **argv);
 int		pushswap_len_b(char **argv);
 int		ctrl_sorted_b(int *array, int size, int order_way);
-void	ctrl_doubles_b(int *array, int size);
-void	ft_error_b(int *arrays);
+void	ctrl_doubles_b(t_push_swap arrays, int size, int k, char **argv);
+void	ft_error_b(t_push_swap arrays, int k, char **argv);
 void	sa_b(t_push_swap *arrays);
 void	pa_b(t_push_swap *arrays);
 void	ra_b(t_push_swap *arrays);

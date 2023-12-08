@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bakgun <bakgun@student.42kocaeli.com.tr>   +#+  +:+       +#+        */
+/*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 11:46:55 by bakgun            #+#    #+#             */
-/*   Updated: 2023/08/14 12:10:04 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:09:45 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 static char	*ft_copy_to_stash(char *stash, char *buf)
 {
