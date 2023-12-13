@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:55:48 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/08 11:36:42 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/13 11:27:32 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,17 @@ typedef struct s_push_swap
 
 char	**ft_split(char const *s, char c);
 char	**ft_allfree(char **str);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s1);
 int		quicksort_array_a(t_push_swap *arrays, int len, int count_rotate);
 int		quicksort_array_b(t_push_swap *arrays, int len, int count_rotate);
 int		push_array(t_push_swap *arrays, int len, char array_ab);
 int		start_sort(t_push_swap *arrays, int size);
-int		push_swap_atoi(char *str, t_push_swap arrays, int k, char **argv);
+int		push_swap_atoi(char *str, t_push_swap arrays, char **argv);
 int		pushswap_len(char **argv);
 int		ctrl_sorted(int *array, int size, int order_way);
-void	ctrl_doubles(t_push_swap arrays, int size, int k, char **argv);
-void	ft_error(t_push_swap arrays, int k, char **argv);
+void	ctrl_doubles(t_push_swap arrays, int size, char **argv);
+void	ft_error(t_push_swap arrays, char **argv);
 void	sa(t_push_swap *arrays);
 void	pa(t_push_swap *arrays);
 void	ra(t_push_swap *arrays);

@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:04:26 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/08 11:36:52 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/13 12:03:00 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	ft_error(t_push_swap arrays, int k, char **argv)
+void	ft_error(t_push_swap arrays, char **argv)
 {
 	free(arrays.a);
 	free(arrays.b);
-	if (k == 1)
-		ft_allfree(argv);
+	ft_allfree(argv);
 	write(2, "Error\n", 6);
 	exit (1);
 }
 
-int	push_swap_atoi(char *str, t_push_swap arrays, int k, char **argv)
+int	push_swap_atoi(char *str, t_push_swap arrays, char **argv)
 {
 	int		i;
 	int		sign;
@@ -40,16 +39,16 @@ int	push_swap_atoi(char *str, t_push_swap arrays, int k, char **argv)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	if (str[i] == '\0')
-		ft_error(arrays, k, argv);
+		ft_error(arrays, argv);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_error(arrays, k, argv);
+			ft_error(arrays, argv);
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
 	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1))
-		ft_error(arrays, k, argv);
+		ft_error(arrays, argv);
 	return (num * sign);
 }
 
@@ -66,7 +65,7 @@ int	pushswap_len(char **argv)
 	return (i);
 }
 
-void	ctrl_doubles(t_push_swap arrays, int size, int k, char **argv)
+void	ctrl_doubles(t_push_swap arrays, int size, char **argv)
 {
 	int	i;
 	int	j;
@@ -78,7 +77,7 @@ void	ctrl_doubles(t_push_swap arrays, int size, int k, char **argv)
 		while (j < size)
 		{
 			if (arrays.a[i] == arrays.a[j])
-				ft_error(arrays, k, argv);
+				ft_error(arrays, argv);
 			j++;
 		}
 		i++;

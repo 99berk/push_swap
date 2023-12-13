@@ -6,7 +6,7 @@
 #    By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 17:48:38 by bakgun            #+#    #+#              #
-#    Updated: 2023/12/06 15:18:13 by bakgun           ###   ########.fr        #
+#    Updated: 2023/12/13 11:45:45 by bakgun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ CC := gcc
 
 CFLAGS := -Wall -Wextra -Werror
 
-SOURCE := push_swap.c quicksort.c utils.c lets_sort.c ft_split.c movements_a_b.c movements_a.c movements_b.c\
+SOURCE := push_swap.c quicksort.c utils.c lets_sort.c ft_split.c ft_funcs.c movements_a_b.c movements_a.c movements_b.c\
 
-SOURCE_B := checker_bonus.c ft_split_bonus.c movements_a_b_bonus.c movements_a_bonus.c movements_b_bonus.c utils_bonus.c\
+SOURCE_B := checker_bonus.c ft_split_bonus.c ft_funcs_bonus.c movements_a_b_bonus.c movements_a_bonus.c movements_b_bonus.c utils_bonus.c\
 
 GNL := get_next_line/
 
