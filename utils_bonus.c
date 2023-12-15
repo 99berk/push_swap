@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 17:02:37 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/13 11:32:51 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:43:46 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 
 void	ft_error_b(t_push_swap arrays, char **argv)
 {
-	free(arrays.a);
-	free(arrays.b);
+	if (arrays.a != NULL)
+		free(arrays.a);
+	if (arrays.b != NULL)
+		free(arrays.b);
 	ft_allfree_b(argv);
 	write(2, "Error\n", 6);
 	exit (1);

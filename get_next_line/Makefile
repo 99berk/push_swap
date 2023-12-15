@@ -6,7 +6,7 @@
 #    By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 15:20:19 by bakgun            #+#    #+#              #
-#    Updated: 2023/12/06 15:20:20 by bakgun           ###   ########.fr        #
+#    Updated: 2023/12/15 15:46:29 by bakgun           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ SRC = get_next_line.c\
 
 all:
 	gcc $(FLAG) -c $(SRC)
-	ar rc $(NAME) *.o
+	ar rc $(NAME) get_next_line.o get_next_line_utils.o
 clean:
-	/bin/rm -f  *.o
+	/bin/rm -f  get_next_line.o get_next_line_utils.o
 fclean: clean
 	/bin/rm -f $(NAME)
 

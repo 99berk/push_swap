@@ -6,12 +6,13 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 13:02:24 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/13 11:29:30 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:30:19 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 int	push_swap(char **argv)
 {
@@ -21,10 +22,10 @@ int	push_swap(char **argv)
 	arrays.size_a = pushswap_len(argv);
 	arrays.a = malloc(sizeof(int) * arrays.size_a);
 	if (!arrays.a)
-		return (0);
+		return (ft_allfree(argv), write(2, "Error\n", 6), 0);
 	arrays.b = malloc(sizeof(int) * arrays.size_a);
 	if (!arrays.b)
-		return (free(arrays.a), 0);
+		return (free(arrays.a), ft_allfree(argv), write(2, "Error\n", 6), 0);
 	arrays.size_b = 0;
 	i = -1;
 	while (++i < arrays.size_a)
@@ -54,13 +55,14 @@ char	**arg_converter(char **argv)
 		{
 			tmp = ft_strjoin(str, " ");
 			free(str);
+			if (str == NULL || tmp == NULL)
+				return (NULL);
 			str = ft_strjoin(tmp, argv[i]);
 			free(tmp);
 		}
 	}
 	str2 = ft_split(str, ' ');
-	free(str);
-	return (str2);
+	return (free(str), str2);
 }
 
 int	main(int argc, char **argv)
@@ -71,6 +73,8 @@ int	main(int argc, char **argv)
 	{
 		argv++;
 		str = arg_converter(argv);
+		if (str == NULL)
+			return (write(2, "Error\n", 6), 0);
 		push_swap(str);
 		return (0);
 	}

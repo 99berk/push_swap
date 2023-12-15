@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:32:17 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/13 11:42:47 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/15 14:45:10 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ int	push_swap(char **argv)
 	arrays.size_a = pushswap_len_b(argv);
 	arrays.a = malloc(sizeof(int) * arrays.size_a);
 	if (!arrays.a)
-		return (0);
+		return (ft_allfree_b(argv), write(2, "Error\n", 6), 0);
 	arrays.b = malloc(sizeof(int) * arrays.size_a);
 	if (!arrays.b)
-		return (free(arrays.a), 0);
+		return (free(arrays.a), ft_allfree_b(argv), write(2, "Error\n", 6), 0);
 	arrays.size_b = 0;
 	i = -1;
 	while (++i < arrays.size_a)
@@ -100,13 +100,14 @@ char	**arg_converter(char **argv)
 		{
 			tmp = ft_strjoin_b(str, " ");
 			free(str);
+			if (str == NULL || tmp == NULL)
+				return (NULL);
 			str = ft_strjoin_b(tmp, argv[i]);
 			free(tmp);
 		}
 	}
 	str2 = ft_split_b(str, ' ');
-	free(str);
-	return (str2);
+	return (free(str), str2);
 }
 
 int	main(int argc, char **argv)
@@ -117,6 +118,8 @@ int	main(int argc, char **argv)
 	{
 		argv++;
 		str = arg_converter(argv);
+		if (str == NULL)
+			return (write(2, "Error\n", 6), 0);
 		push_swap(str);
 		return (0);
 	}
