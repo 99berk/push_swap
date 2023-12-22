@@ -6,7 +6,7 @@
 /*   By: bakgun <bakgun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:32:17 by bakgun            #+#    #+#             */
-/*   Updated: 2023/12/15 14:45:10 by bakgun           ###   ########.fr       */
+/*   Updated: 2023/12/16 14:31:27 by bakgun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int	checker(t_push_swap *arrays)
 		return (free(line), 1);
 	if (checker2(arrays, line) == 0)
 		return (free(line), 0);
-	checker(arrays);
+	if (checker(arrays) == 0)
+		return (free(line), 0);
 	return (free(line), 1);
 }
 
@@ -60,6 +61,7 @@ int	push_swap(char **argv)
 {
 	t_push_swap	arrays;
 	int			i;
+	int			error;
 
 	arrays.size_a = pushswap_len_b(argv);
 	arrays.a = malloc(sizeof(int) * arrays.size_a);
@@ -73,9 +75,10 @@ int	push_swap(char **argv)
 	while (++i < arrays.size_a)
 		arrays.a[i] = push_swap_atoi_b(argv[i], arrays, argv);
 	ctrl_doubles_b(arrays, arrays.size_a, argv);
-	if (checker(&arrays) == 1 && !ctrl_sorted_b(arrays.a, arrays.size_a, 0))
+	error = checker(&arrays);
+	if (error != 0 && !ctrl_sorted_b(arrays.a, arrays.size_a, 0))
 		write(1, "KO\n", 3);
-	else if (ctrl_sorted_b(arrays.a, arrays.size_a, 0))
+	else if (error != 0 && ctrl_sorted_b(arrays.a, arrays.size_a, 0))
 		write(1, "OK\n", 3);
 	free(arrays.a);
 	free(arrays.b);
